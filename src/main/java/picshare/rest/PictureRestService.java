@@ -2,6 +2,7 @@ package picshare.rest;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import javax.json.Json;
 import javax.json.JsonArray;
@@ -15,9 +16,13 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Response;
 
+import org.json.JSONArray;
+
+import picshare.domain.Comment;
 import picshare.domain.Picture;
 import picshare.domain.PictureService;
 import picshare.domain.ServiceProvider;
+import picshare.domain.User;
 
 @Path("/pictures")
 public class PictureRestService {
@@ -60,6 +65,7 @@ public class PictureRestService {
 			}
 		public JsonObjectBuilder createJson(Picture p){
 			JsonObjectBuilder job = Json.createObjectBuilder();
+			JsonObjectBuilder jobcom = Json.createObjectBuilder();
 			SimpleDateFormat dt1 = new SimpleDateFormat("dd-mm-yyyy");
 			job.add("id", p.getId());
 			job.add("title", p.getTitle());
@@ -67,6 +73,17 @@ public class PictureRestService {
 			job.add("publication", dt1.format(p.getPublication()));
 			job.add("likes", p.getLikes());
 			job.add("views", p.getViews());
+			
+			JsonArrayBuilder jab = Json.createArrayBuilder();
+			for (Comment c:p.getComments()) {
+				jobcom.add("id", c.getId());
+				jobcom.add("author", c.getAuthor());
+				User u=service.getUserByName(c.getAuthor());
+				jobcom.add("authorid", u.getId());
+				jobcom.add("content", c.getContent());
+				jab.add(jobcom);
+			}
+			job.add("comments", jab);
 			return job;
 		}
 }

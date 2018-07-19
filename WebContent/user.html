@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>W3.CSS Template</title>
+<title>PicShare</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -16,36 +16,13 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 
 <!-- Page Container -->
 <div class="w3-content w3-margin-top" style="max-width:1400px;">
+ <div class="w3-center w3-padding-8"><a href=/picshareapp/index.html><b>PicShare</b></a></div><br>
 
   <!-- The Grid -->
   <div class="w3-row-padding">
   
     <!-- Left Column -->
-    <div class="w3-third">
-      <div class="w3-white w3-text-black w3-card-4">
-        <div class="w3-display-container">
-          <img src="/w3images/avatar_hat.jpg" style="width:100%" alt="Avatar">
-          <div class="w3-display-bottomleft w3-container w3-text-black">
-            <h2><b>Jane Doe</b></h2>
-          </div>
-        </div>
-        <div class="w3-container">
-                  <p class="w3-large"><b><i class="fa fa-user fa-fw w3-margin-right w3-text-black"></i>About me</b></p><hr>
-                  <p><i class="fa fa-birthday-cake fa-fw w3-margin-right w3-large w3-text-black"></i>19-02-1999</p>
-          <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-black"></i>United States of America</p>
-          <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-black"></i>janedoe@mail.com</p>
-<p><b>Description</b><br>This is actually me. I am me. I will never be anyone but me. This is actually me. I am me. I will never be anyone but me.</p>
-          <p class="w3-large"><b><i class="fa fa-bar-chart fa-fw w3-margin-right w3-text-black"></i>Statistics</b></p><hr>
-           <p><i class="fa fa-photo fa-fw w3-margin-right w3-large w3-text-black"></i>Illustrations: 6</p>
-            <p><i class="fa fa-thumbs-o-up fa-fw w3-margin-right w3-large w3-text-black"></i>Total Likes: 123</p>
-             <p><i class="fa fa-eye fa-fw w3-margin-right w3-large w3-text-black"></i>Total Views: 1200</p>
-          <hr>
-    <button class="w3-button w3-dark-grey w3-padding-large w3-margin-top w3-margin-bottom">
-        <i class="fa fa-user-plus w3-margin-right"></i>Follow this user
-      </button>
-          <br>
-        </div>
-      </div><br>
+    <div id=userinfo class="w3-third">
 
     <!-- End Left Column -->
     </div>
@@ -53,36 +30,12 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     <!-- Right Column -->
     <div class="w3-twothird">
     
-      <div class="w3-container w3-card w3-white w3-margin-bottom">
+      <div id=content class="w3-container w3-card w3-white w3-margin-bottom">
         <h2 class="w3-text-black w3-padding-16"><i class="fa fa-photo fa-fw w3-margin-right w3-xxlarge w3-text-black"></i>Illustrations</h2>
-        <img src="/w3images/avatar_hat.jpg" style="width:31%" alt="Avatar">&emsp;
-        <img src="/w3images/avatar_hat.jpg" style="width:31%" alt="Avatar">&emsp;
-        <img src="/w3images/avatar_hat.jpg" style="width:31%" alt="Avatar">
-        <br><br>
- <img src="/w3images/avatar_hat.jpg" style="width:31%" alt="Avatar">&emsp;
-        <img src="/w3images/avatar_hat.jpg" style="width:31%" alt="Avatar">&emsp;
-        <img src="/w3images/avatar_hat.jpg" style="width:31%" alt="Avatar">
-         <br><br>
-         <a href="#" class="w3-bar-item w3-button w3-hover-black" style=float:right;>View more»</a><br><br>
       </div>
 
-     <div class="w3-container w3-card w3-white">
-        <h2 class="w3-text-black w3-padding-16"><i class="fa fa-comments-o fa-fw w3-margin-right w3-xxlarge w3-text-black"></i>User Feed</h2>
-        <div class="w3-container">
-         <h5><img class=img-circle src="/w3images/avatar_hat.jpg" style="width:10%" alt="Avatar"><b class="w3-opacity">&emsp;Lack.</b></h5>
-          <p>Nice art mane!</p>
-          <hr>
-        </div>
-        <div class="w3-container">
-         <h5><img class=img-circle src="/w3images/avatar_hat.jpg" style="width:10%" alt="Avatar"><b class="w3-opacity">&emsp;Graddus</b></h5>
-          <p>looks cool</p>
-          <hr>
-          </div>
-        <div class="w3-container">
-         <h5><img class=img-circle src="/w3images/avatar_hat.jpg" style="width:10%" alt="Avatar"><b class="w3-opacity">&emsp;Anneedroid</b></h5>
-          <p>cute</p>
-          <hr>
-          </div>
+     <div id=comments class="w3-container w3-card w3-white">
+        <h2 class="w3-text-black w3-padding-16"><i class="fa fa-comments-o fa-fw w3-margin-right w3-xxlarge w3-text-black"></i>User Feed</h2> 
       </div>
 
     <!-- End Right Column -->
@@ -94,16 +47,69 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   <!-- End Page Container -->
 </div>
 
-<footer class="w3-container w3-teal w3-center w3-margin-top">
-  <p>Find me on social media.</p>
-  <i class="fa fa-facebook-official w3-hover-opacity"></i>
-  <i class="fa fa-instagram w3-hover-opacity"></i>
-  <i class="fa fa-snapchat w3-hover-opacity"></i>
-  <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-  <i class="fa fa-twitter w3-hover-opacity"></i>
-  <i class="fa fa-linkedin w3-hover-opacity"></i>
-  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+<footer class="w3-container w3-teal w3-center w3-margin-top w3-dark-grey">
+      <br><p>PicShare is a project by Lucca Huijgens. I really enjoy browsing through pictures, so i made this app so people can share and browse through the awesome creations of others.</p>
+      <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
 </footer>
-
+<script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
+<script>
+function loaduser(){
+	$.getJSON("/picshareapp/restservices/users/2", function(user){
+	 	$("#userinfo").append(
+	 	  "<div class=\"w3-white w3-text-black w3-card-4\">"+
+        "<div class=w3-display-container>"+
+          "<img src=/picshareapp/imgs/users/"+user.id+".jpg style=width:50% alt=Avatar>"+
+          "<div class=\"w3-display-bottomleft w3-container w3-text-black\">"+
+           "<h2><span style=background-color:rgba(255,255,255,0.5);>"+user.username+"</span></h2>"+
+         "</div></div><div class=w3-container>"+
+                  "<p class=w3-large><b><i class=\"fa fa-user fa-fw w3-margin-right w3-text-black\"></i>About me</b></p><hr>"+
+                  "<p><i class=\"fa fa-birthday-cake fa-fw w3-margin-right w3-large w3-text-black\"></i>"+user.birthday+"</p>"+
+          "<p><i class=\"fa fa-home fa-fw w3-margin-right w3-large w3-text-black\"></i>"+user.home+"</p>"+
+          "<p><i class=\"fa fa-envelope fa-fw w3-margin-right w3-large w3-text-black\"></i>"+user.email+"</p>"+
+"<p><b>Description</b><br>"+user.description+"</p>"+
+          "<p class=w3-large><b><i class=\"fa fa-bar-chart fa-fw w3-margin-right w3-text-black\"></i>Statistics</b></p><hr>"+
+           "<p><i class=\"fa fa-photo fa-fw w3-margin-right w3-large w3-text-black\"></i>Illustrations: "+user.illustrations+"</p>"+
+            "<p><i class=\"fa fa-thumbs-o-up fa-fw w3-margin-right w3-large w3-text-black\"></i>Total Likes: "+user.likes+"</p>"+
+             "<p><i class=\"fa fa-eye fa-fw w3-margin-right w3-large w3-text-black\"></i>Total Views: "+user.views+"</p><hr>"+
+    "<button class=\"w3-button w3-dark-grey w3-padding-large w3-margin-top w3-margin-bottom\">"+
+        "<i class=\"fa fa-user-plus w3-margin-right\"></i>Follow this user"+
+      "</button><br></div></div><br>");
+	});}
+	function loadcontent(){
+		$.getJSON("/picshareapp/restservices/users/2", function(user){		
+	    var works = user.allworks[0];
+	 	$("#content").append(
+	 				"<a href=/picshareapp/pictures/"+works.id+".html><img src=/picshareapp/imgs/pics/"+works.id+".jpg style=width:31% alt=Avatar></a>&emsp;");
+	 	  var works = user.allworks[1];
+		 	$("#content").append(
+		 			"<a href=/picshareapp/pictures/"+works.id+".html><img src=/picshareapp/imgs/pics/"+works.id+".jpg style=width:31% alt=Avatar></a>&emsp;");
+		 	  var works = user.allworks[2];
+			 	$("#content").append(
+			 			"<a href=/picshareapp/pictures/"+works.id+".html><img src=/picshareapp/imgs/pics/"+works.id+".jpg style=width:31% alt=Avatar></a><br><br>");
+			 	  var works = user.allworks[3];
+			 	 $("#content").append(
+			 				"<a href=/picshareapp/pictures/"+works.id+".html><img src=/picshareapp/imgs/pics/"+works.id+".jpg style=width:31% alt=Avatar></a>&emsp;");
+			 	  var works = user.allworks[4];
+				 	$("#content").append(
+				 			"<a href=/picshareapp/pictures/"+works.id+".html><img src=/picshareapp/imgs/pics/"+works.id+".jpg style=width:31% alt=Avatar></a>&emsp;");
+				 	  var works = user.allworks[5];
+					 	$("#content").append(
+					 			"<a href=/picshareapp/pictures/"+works.id+".html><img src=/picshareapp/imgs/pics/"+works.id+".jpg style=width:31% alt=Avatar></a><br><br>");
+		$("#content").append("<a href=# class=\"w3-bar-item w3-button w3-hover-black\" style=float:right;>View more»</a><br><br>");
+	});}
+	function loadcomments(){
+    	$.getJSON("/picshareapp/restservices/users/2", function(user){
+    		for (var i = 0; i < user.comments.length; i++) {
+    		    var comment = user.comments[i];
+    		    
+		 	$("#comments").append(
+		 	        "<div class=w3-container><h5><a href=/picshareapp/users/"+comment.authorid+".html><img class=img-circle src=/picshareapp/imgs/users/"+comment.authorid+".jpg style=width:10% alt=Avatar></a><b class=w3-opacity>&emsp;"+comment.author+"</b></h5>"+
+		 	         "<p>"+comment.content+"</p><hr></div>"		
+		 	);}
+    	});}
+loaduser();
+loadcontent();
+loadcomments();
+</script>
 </body>
 </html>

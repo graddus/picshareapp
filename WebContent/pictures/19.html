@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Raleway'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+.img-circle {
+    border-radius: 50%;
+}
+</style>
+<body class="w3-light-grey">
+
+<!-- Page Container -->
+<div class="w3-content w3-margin-top" style="max-width:1400px;">
+    <div class="w3-center w3-padding-8"><a href=/picshareapp/index.html><b>PicShare</b></a></div><br>
+</div>
+
+
+  <!-- The Grid -->
+  <div class="w3-row-padding">
+  
+    <!-- Left Column -->
+    <div id=user class="w3-third">
+     
+
+    <!-- End Left Column -->
+    </div>
+
+
+    <!-- Right Column -->
+    <div class="w3-twothird">
+    
+      <div id=picture class="w3-container w3-card w3-white w3-margin-bottom">
+      </div>
+
+      <div id=comments class="w3-container w3-card w3-white">
+      <h2 class="w3-text-black w3-padding-16"><i class="fa fa-comments-o fa-fw w3-margin-right w3-xxlarge w3-text-black"></i>Comments</h2>
+      </div>
+
+    <!-- End Right Column -->
+    </div>
+    
+  <!-- End Grid -->
+  </div>
+  
+  <!-- End Page Container -->
+</div>
+
+<footer class="w3-container w3-teal w3-center w3-margin-top w3-dark-grey">
+      <br><p>PicShare is a project by Lucca Huijgens. I really enjoy browsing through pictures, so i made this app so people can share and browse through the awesome creations of others.</p>
+      <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+</footer>
+<script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
+<script>
+function loaduser(){
+	$.getJSON("/picshareapp/restservices/users/5", function(user){
+	 	$("#user").append(
+	 			 "<div class=\"w3-white w3-text-black w3-card-4\">"+
+	 	        "<div class=w3-display-container>"+
+	 	          "<a href=/picshareapp/users/"+user.id+".html><img src=/picshareapp/imgs/users/"+user.id+".jpg style=width:50% alt=Avatar></a>"+
+	 	          "<div class=\"w3-display-bottomleft w3-container w3-text-black\">"+
+	 	            "<h2><span style=background-color:rgba(255,255,255,0.5);>"+user.username+"</span></h2>"+
+	 	          "</div></div><div id=content class=w3-container>"+
+	 	        "<p class=w3-large><b><i class=\"fa fa-user fa-fw w3-margin-right w3-text-black\"></i>About me</b></p><hr>"+
+	 	                  "<p><i class=\"fa fa-birthday-cake fa-fw w3-margin-right w3-large w3-text-black\"></i>"+user.birthday+"</p>"+
+	 	          "<p><i class=\"fa fa-home fa-fw w3-margin-right w3-large w3-text-black\"></i>"+user.home+"</p>"+
+	 	          "<p><i class=\"fa fa-envelope fa-fw w3-margin-right w3-large w3-text-black\"></i>"+user.email+"</p>"+
+	 	"<p><b>Description</b><br>"+user.description+"</p><p class=w3-large><b><i class=\"fa fa-bar-chart fa-fw w3-margin-right w3-text-black\"></i>More Illustrations from this user</b></p><hr>");
+	 	
+		    var works = user.works[0];
+	 	$("#content").append(
+	 				"<a href=/picshareapp/pictures/"+works.id+".html><img src=/picshareapp/imgs/pics/"+works.id+".jpg style=width:48%;></a>");
+	 	  var works = user.works[1];
+		 	$("#content").append(
+		 				"<a href=/picshareapp/pictures/"+works.id+".html><img src=/picshareapp/imgs/pics/"+works.id+".jpg style=width:48%;></a><br>");
+		 	  var works = user.works[2];
+			 	$("#content").append(
+			 				"<a href=/picshareapp/pictures/"+works.id+".html><img src=/picshareapp/imgs/pics/"+works.id+".jpg style=width:48%;></a>");
+			 	  var works = user.works[3];
+				 	$("#content").append(
+				 				"<a href=/picshareapp/pictures/"+works.id+".html><img src=/picshareapp/imgs/pics/"+works.id+".jpg style=width:48%;></a><br>");
+		$("#content").append("<br></div></div><br>");
+	});}
+function loadpicture(){
+	$.getJSON("/picshareapp/restservices/pictures/19", function(picture){
+	 	document.title="PicShare";
+	 	$("#picture").append(
+	 			"<h2 class=\"w3-text-black w3-padding-16\"><i class=\"fa fa-photo fa-fw w3-margin-right w3-xxlarge w3-text-black\"></i>"+picture.title+"</h2>"+
+	            "<img src=/picshareapp/imgs/pics/"+picture.id+".jpg style=width:100% alt=Avatar><br><br>"+
+	           "<i class=\"fa fa-thumbs-o-up fa-fw w3-large w3-text-black\"></i><b>"+picture.likes+"&emsp;&emsp;<i class=\"fa fa-eye fa-fw w3-large w3-text-black\"></i>"+picture.views+"</b>"+
+	            "<hr><p>"+picture.description+"</p><br>"
+	            );
+	});}
+function loadcomments(){
+	    	$.getJSON("/picshareapp/restservices/pictures/19", function(picture){
+	    		for (var i = 0; i < picture.comments.length; i++) {
+	    		    var comment = picture.comments[i];
+	    		    
+	    		    $("#comments").append(
+	    		 	        "<div class=w3-container><h5><a href=/picshareapp/users/"+comment.authorid+".html><img class=img-circle src=/picshareapp/imgs/users/"+comment.authorid+".jpg style=width:10% alt=Avatar></a><b class=w3-opacity>&emsp;"+comment.author+"</b></h5>"+
+	    		 	         "<p>"+comment.content+"</p><hr></div>"		
+	    		 	);}
+	    	});}
+loaduser();
+loadpicture();
+loadcomments();
+</script>
+</body>
+</html>

@@ -13,6 +13,7 @@ private String password;
 private String description;
 private ArrayList<Picture>works;
 private ArrayList<User>following;
+private ArrayList<Comment>comments;
 
 public User(int id,  String username, String email, Date birthday, String home, String password, String description) {
 	super();
@@ -25,6 +26,7 @@ public User(int id,  String username, String email, Date birthday, String home, 
 	this.description = description;
 	this.works = new ArrayList<Picture>();
 	this.following=new ArrayList<User>();
+	this.comments=new ArrayList<Comment>();
 }
 
 public int getId() {
@@ -103,6 +105,14 @@ public void setFollowing(ArrayList<User> following) {
 public void addFollowing(User following) {
 	this.following.add(following);
 }
-
+public ArrayList<Comment> getComments() {
+	return comments;
+}
+public void setComments(ArrayList<Comment> following) {
+	this.comments = following;
+}
+public void addComments(Comment following) {
+	this.comments.add(following);
+}
 
 }

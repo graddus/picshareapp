@@ -9,6 +9,7 @@ The application uses a front-end that utilizes CSS, HTML5 and JavaScript. The ap
 **Browse the vast amount of Illustrations PicShare has to offer**
 
 ![alt text](https://raw.githubusercontent.com/graddus/picshareapp/master/picture.png)
+**Talk with other about the pictures you like!**
 
 ![alt text](https://raw.githubusercontent.com/graddus/picshareapp/master/user.png)
 **Follow your favorite artists!**

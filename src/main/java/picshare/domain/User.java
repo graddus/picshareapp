@@ -2,6 +2,7 @@ package picshare.domain;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class User {
 private int id;
@@ -11,9 +12,9 @@ private String email;
 private String home;
 private String password;
 private String description;
-private ArrayList<Picture>works;
-private ArrayList<User>following;
-private ArrayList<Comment>comments;
+private List<Picture>works;
+private List<User>following;
+private List<Comment>comments;
 
 public User(int id,  String username, String email, Date birthday, String home, String password, String description) {
 	super();
@@ -24,9 +25,9 @@ public User(int id,  String username, String email, Date birthday, String home, 
 	this.home=home;
 	this.password = password;
 	this.description = description;
-	this.works = new ArrayList<Picture>();
-	this.following=new ArrayList<User>();
-	this.comments=new ArrayList<Comment>();
+	this.works = new ArrayList<>();
+	this.following=new ArrayList<>();
+	this.comments=new ArrayList<>();
 }
 
 public int getId() {
@@ -68,11 +69,11 @@ public void setDescription(String description) {
 	this.description = description;
 }
 
-public ArrayList<Picture> getWorks() {
+public List<Picture> getWorks() {
 	return works;
 }
 
-public void setWorks(ArrayList<Picture> works) {
+public void setWorks(List<Picture> works) {
 	this.works = works;
 }
 public void addWork(Picture pic) {
@@ -95,20 +96,20 @@ public void setHome(String home) {
 	this.home = home;
 }
 
-public ArrayList<User> getFollowing() {
+public List<User> getFollowing() {
 	return following;
 }
 
-public void setFollowing(ArrayList<User> following) {
+public void setFollowing(List<User> following) {
 	this.following = following;
 }
 public void addFollowing(User following) {
 	this.following.add(following);
 }
-public ArrayList<Comment> getComments() {
+public List<Comment> getComments() {
 	return comments;
 }
-public void setComments(ArrayList<Comment> following) {
+public void setComments(List<Comment> following) {
 	this.comments = following;
 }
 public void addComments(Comment following) {

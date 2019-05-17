@@ -2,6 +2,7 @@ package picshare.domain;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Picture {
 private int id;
@@ -10,7 +11,7 @@ private String description;
 private Date publication;
 private int likes;
 private int views;
-private ArrayList<Comment>comments;
+private List<Comment>comments;
 
 public Picture(int id, String title, String description, Date publication) {
 	super();
@@ -20,7 +21,7 @@ public Picture(int id, String title, String description, Date publication) {
 	this.publication = publication;
 	this.likes = 0;
 	this.views=0;
-	this.comments = new ArrayList<Comment>();
+	this.comments = new ArrayList<>();
 }
 
 public int getId() {
@@ -70,11 +71,11 @@ public void setViews(int views) {
 	this.views = views;
 }
 
-public ArrayList<Comment> getComments() {
+public List<Comment> getComments() {
 	return comments;
 }
 
-public void setComments(ArrayList<Comment> comments) {
+public void setComments(List<Comment> comments) {
 	this.comments = comments;
 }
 public void addComment(Comment c) {

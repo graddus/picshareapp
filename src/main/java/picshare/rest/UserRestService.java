@@ -27,9 +27,9 @@ import picshare.domain.User;
 
 			@GET
 			@Produces("application/json")
-			public String UserList(@QueryParam("batch")int batch ) {
+			public String getUserList(@QueryParam("batch")int batch ) {
 				JsonArrayBuilder jab = Json.createArrayBuilder();
-				ArrayList<User>userlist=new ArrayList<User>();
+				ArrayList<User>userlist=new ArrayList<>();
 				for (User user:service.getAllUsers()) {
 					if (!user.getWorks().isEmpty()) {
 						userlist.add(user);
@@ -39,7 +39,7 @@ import picshare.domain.User;
 				if (batchend>userlist.size()) {
 					batchend=userlist.size();
 				}if (batch<=userlist.size()) {
-				ArrayList<User> result = new ArrayList<User>(userlist.subList(batch,batchend));
+				ArrayList<User> result = new ArrayList<>(userlist.subList(batch,batchend));
 				for (User u : result) {
 					jab.add(createJson(u));
 				}
@@ -102,7 +102,7 @@ import picshare.domain.User;
 					totallikes+=p.getLikes();
 					totalviews+=p.getViews();
 				}
-				SimpleDateFormat dt1 = new SimpleDateFormat("dd-mm-yyyy");
+				SimpleDateFormat dt1 = new SimpleDateFormat("dd-MM-yyyy");
 				job.add("id", u.getId());
 				job.add("username", u.getUsername());
 				job.add("email", u.getEmail());
@@ -115,11 +115,11 @@ import picshare.domain.User;
 				JsonArrayBuilder jab = Json.createArrayBuilder();
 				JsonArrayBuilder jab2=Json.createArrayBuilder();
 				JsonArrayBuilder jab3=Json.createArrayBuilder();
-				ArrayList<Picture> sublist=new ArrayList<Picture>();
+				ArrayList<Picture> sublist;
 				if (u.getWorks().size()<4){
-					sublist = new ArrayList<Picture>(u.getWorks().subList(0, u.getWorks().size()));
+					sublist = new ArrayList<>(u.getWorks().subList(0, u.getWorks().size()));
 				}else {
-				    sublist = new ArrayList<Picture>(u.getWorks().subList(0, 4));
+				    sublist = new ArrayList<>(u.getWorks().subList(0, 4));
 				}
 				for (Picture p:sublist) {
 					jobpic.add("id", p.getId());

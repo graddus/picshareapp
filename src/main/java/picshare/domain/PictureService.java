@@ -1,13 +1,14 @@
 package picshare.domain;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class PictureService {
 /*private ServantDao dao=new ServantDaoImpl();*/
 private DataSource data=new DataSource();
 
-public ArrayList<Picture> getAllPictures(){
-	ArrayList<Picture>pictures=new ArrayList<Picture>();
+public List<Picture> getAllPictures(){
+	ArrayList<Picture>pictures=new ArrayList<>();
 	for(User u: data.getData()) {
 		for (Picture p:u.getWorks()) {
 			pictures.add(p);
@@ -26,7 +27,7 @@ public Picture getPictureById(int id) {
 	}
 	return result;
 }
-public ArrayList<User> getAllUsers(){
+public List<User> getAllUsers(){
 	return data.getData();
 }
 public User getUserById(int id) {

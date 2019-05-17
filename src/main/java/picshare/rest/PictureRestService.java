@@ -2,7 +2,6 @@ package picshare.rest;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import javax.json.Json;
 import javax.json.JsonArray;
@@ -16,8 +15,6 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Response;
 
-import org.json.JSONArray;
-
 import picshare.domain.Comment;
 import picshare.domain.Picture;
 import picshare.domain.PictureService;
@@ -30,14 +27,14 @@ public class PictureRestService {
 
 		@GET
 		@Produces("application/json")
-		public String PictureList(@QueryParam("batch")int batch ) {
+		public String getPictureList(@QueryParam("batch")int batch ) {
 			JsonArrayBuilder jab = Json.createArrayBuilder();
-			ArrayList<Picture>picturelist=service.getAllPictures();
+			ArrayList<Picture>picturelist=new ArrayList<>(service.getAllPictures());
 			int batchend=batch+3;
 			if (batchend>picturelist.size()) {
 				batchend=picturelist.size();
 			}if (batch<=picturelist.size()) {
-			ArrayList<Picture> result = new ArrayList<Picture>(picturelist.subList(batch,batchend ));
+			ArrayList<Picture> result = new ArrayList<>(picturelist.subList(batch,batchend ));
 			for (Picture p : result) {
 				jab.add(createJson(p));
 			}

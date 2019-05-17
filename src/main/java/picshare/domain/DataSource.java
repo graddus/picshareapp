@@ -5,6 +5,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 public class DataSource {
@@ -13,28 +14,25 @@ public class DataSource {
 	public DataSource() {
 		try {
 			DateFormat format = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH);
-			Date date;
-			User u1 = new User(1, "Graddus", "luccagraddushuijgens@gmail.com", date = format.parse("June 7, 1999"),
+			User u1 = new User(1, "Graddus", "luccagraddushuijgens@gmail.com", format.parse("June 7, 1999"),
 					"Netherlands", "test", "I'm a big fan of anime artwork");
-			User u2 = new User(2, "lack.", "lack@gmail.com", date = format.parse("July 12, 1999"),
-					"United States of America", "test",
-					"An American photographer who likes to take pictures of nature");
-			User u3 = new User(3, "Altair", "Altair@pixiv.com", date = format.parse("April 6, 1998"), "Japan", "test",
+			User u2 = new User(2, "lack.", "lack@gmail.com", format.parse("July 12, 1999"), "United States of America",
+					"test", "An American photographer who likes to take pictures of nature");
+			User u3 = new User(3, "Altair", "Altair@pixiv.com", format.parse("April 6, 1998"), "Japan", "test",
 					"I am a freelancer illustrator based in Tokyo, Japan. I'm a big fan of the Fate series, so a lot of my works are based on it.");
-			User u4 = new User(4, "WorldCityPhotographing", "info@WCP.com", date = format.parse("June 9, 1989"),
-					"Australia", "test",
+			User u4 = new User(4, "WorldCityPhotographing", "info@WCP.com", format.parse("June 9, 1989"), "Australia",
+					"test",
 					"We are a photographing duo that aim to make the most beautiful pictures of the world's largest cities");
-			User u5 = new User(5, "Anneedroid", "anneedroid@live.uk", date = format.parse("January 6, 2000"),
-					"United Kingdom", "test",
+			User u5 = new User(5, "Anneedroid", "anneedroid@live.uk", format.parse("January 6, 2000"), "United Kingdom",
+					"test",
 					"(* ^ ω ^)Hi, I'm Anneedroid and I like Nendoroids. A lot. I like them so much that i use them as models for the most beautiful pictures you'll ever see!(* ^ ω ^)");
-			User u6 = new User(6, "GraphicAssets", "graphicassets@gmail.com", date = format.parse("August 21, 1995"),
+			User u6 = new User(6, "GraphicAssets", "graphicassets@gmail.com", format.parse("August 21, 1995"),
 					"Germany", "test",
 					"We are a small studio of artists who are dedicated to making the most beautiful paintings possible");
-			User u7 = new User(7, "FestivalPhotography", "festivalphotography@gmail.com",
-					date = format.parse("July 4, 1997"), "Canada", "test",
+			User u7 = new User(7, "FestivalPhotography", "festivalphotography@gmail.com", format.parse("July 4, 1997"),
+					"Canada", "test",
 					"I'm a festival regular and I like to take a lot of photos of the festivals i attend");
-			User u8;
-			User u9;
+
 			Picture p1 = new Picture(1, "Sakura Dream", "A photo of the Japanese Sakura woods", new Date());
 			p1.setLikes(23);
 			p1.setViews(132);
@@ -130,9 +128,6 @@ public class DataSource {
 					"You are very creative with your Nendoroids. If only I could do the same...");
 			Comment c8 = new Comment(8, "Graddus", "Did you attend the Woohah 2018 Festival? Shit was crazy!!!");
 			Comment c9 = new Comment(9, "ALtair", "I really like the art style of your works");
-			Comment c10;
-			Comment c11;
-			Comment c12;
 			p1.addComment(c1);
 			p1.addComment(c2);
 			p15.addComment(c3);
@@ -167,7 +162,7 @@ public class DataSource {
 			u3.addWork(p23);
 			u1.addFollowing(u7);
 			u1.addFollowing(u4);
-			users = new ArrayList<User>();
+			users = new ArrayList<>();
 			users.add(u1);
 			users.add(u7);
 			users.add(u2);
@@ -180,7 +175,7 @@ public class DataSource {
 		}
 	}
 
-	public ArrayList<User> getData() {
+	public List<User> getData() {
 		return users;
 	}
 }

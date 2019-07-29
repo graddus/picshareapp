@@ -8,11 +8,24 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+.w3-row-padding{
+margin-left:5%;
+margin-right:5%;
+width:90%;
+}
+@media only screen and (max-width: 1590px) and (min-width: 992px){
+  .w3-third{
+  width:47% !important;
+  }
+  .w3-third img{
+  max-height:280px !important;
+  }
+}
 </style>
-<body class="w3-light-grey w3-content" style="max-width:1600px">
+<body class="w3-light-grey">
 
 <!-- Sidebar/menu -->
-<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+<nav class="w3-sidebar w3-collapse w3-white" style="z-index:3;width:230px;" id="mySidebar"><br>
   <div class="w3-container">
     <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey" title="close menu">
       <i class="fa fa-remove"></i>
@@ -34,23 +47,20 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
 <!-- !PAGE CONTENT! -->
-<div class="w3-main" style="margin-left:300px">
+<div class="w3-main" style="margin-left:230px;max-width:1690px;">
 
+<div id=picturecontent style=margin-left:5%;margin-right:5%;width:90%;>
   <!-- Header -->
   <header id="portfolio">
     <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
     <div class="w3-container">
     <span><center><b>PicShare</b></center></span>
-    <h1><b>Latest Illustrations</b></h1>
+    <div style=margin-left:5%;><h1><b>Latest Illustrations</b></h1></div>
     </div>
   </header>
   
   <!-- First Photo Grid-->
   <div id=photo1 class="w3-row-padding">
-  </div>
-  
-  <!-- Second Photo Grid-->
-  <div id=photo2 class="w3-row-padding">
   </div>
 
   <!-- Pagination -->
@@ -66,7 +76,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   </div>
 
   <!-- Images of Me -->
-  <div class="w3-container">
+  <div class="w3-container" style=margin-left:5%;margin-right:5%;width:90%;>
     <h1><b>Recommended Artists</b></h1>
     </div>
   </header>
@@ -128,89 +138,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 
 <!-- End page content -->
 </div>
+</div>
 <script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
-<script>
-function loadpictures(batch,row){
-	$.getJSON("/picshareapp/restservices/pictures?batch="+batch, function(data){
-		$.each(data, function(i, picture){
-			$("#photo"+row).append(
-					 "<div class=\"w3-third w3-container w3-margin-bottom\">"+
-				      "<a href=pictures/"+picture.id+".html><img src=imgs/pics/"+picture.id+".jpg alt=Sandwich style=width:100% class=w3-hover-opacity></a>"+
-				      "<div class=\"w3-container w3-white\">"+
-				        "<p><b>"+picture.title+"</b></p>"+
-				        "<p>"+picture.description+"</p>"+
-				      "</div></div>"
-);
-		});
-
-});
-} 
-function loadusers(batch){
-	$.getJSON("/picshareapp/restservices/users?batch="+batch, function(data){
-		$.each(data, function(i, user){
-			$("#users").append(
-					 "<div class=\"w3-quarter w3-container w3-margin-bottom\">"+
-				      "<a href=users/"+user.id+".html><img src=imgs/users/"+user.id+".jpg alt=Sandwich style=width:100% class=w3-hover-opacity></a>"+
-				      "<div class=\"w3-container w3-white\">"+
-				        "<p><b>"+user.username+"</b></p>"+
-				        "<p>"+user.description+"</p>"+
-				      "</div></div>"
-);
-		});
-
-});
-}
-loadpictures(0,1);
-loadpictures(3,2);
-loadusers(0);
-</script>
-<script>
-$( "#picbutton1" ).click(function() {
-	 $("#photo1").empty();
-	 $("#photo2").empty();
-	  loadpictures(0,1);
-	  loadpictures(3,2);
-	});
-$( "#picbutton2" ).click(function() {
-	 $("#photo1").empty();
-	 $("#photo2").empty();
-	  loadpictures(6,1);
-	  loadpictures(9,2);
-	});
-$( "#picbutton3" ).click(function() {
-	 $("#photo1").empty();
-	 $("#photo2").empty();
-	  loadpictures(12,1);
-	  loadpictures(15,2);
-	});
-$( "#picbutton4" ).click(function() {
-	 $("#photo1").empty();
-	 $("#photo2").empty();
-	  loadpictures(18,1);
-	  loadpictures(21,2);
-	});
-$( "#userbutton1" ).click(function() {
-	 $("#users").empty();
-	 $("#users").empty();
-	  loadusers(0);
-	});
-$( "#userbutton2" ).click(function() {
-	 $("#users").empty();
-	 $("#users").empty();
-	  loadusers(4);
-	});
-</script>
-<script>
-// Script to open and close sidebar
-function w3_open() {
-    document.getElementById("mySidebar").style.display = "block";
-    document.getElementById("myOverlay").style.display = "block";
-}
- 
-function w3_close() {
-    document.getElementById("mySidebar").style.display = "none";
-    document.getElementById("myOverlay").style.display = "none";
-}
+<script src="js/index.js">
 </script>
 
 </body>
